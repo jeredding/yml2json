@@ -23,7 +23,7 @@ class JsonTimeEncoder(json.JSONEncoder):
     """
     def default(self, obj):
         if isinstance(obj, datetime.datetime):
-            if int(obj.strftime('%f')) is 0:
+            if int(obj.strftime('%f')) == 0:
                 return obj.strftime('%Y-%m-%dT%H:%M:%S%z')
             else:
                 return obj.strftime('%Y-%m-%dT%H:%M:%S.%f%z')
